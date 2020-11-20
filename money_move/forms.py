@@ -162,16 +162,18 @@ class AddSpendings(forms.Form):
     spendings_kind_objects = SpendingKind.objects.all()
     blank_choice = ('', '---Введите значение---')
     first_level_kind_unique = []
-
-    for p in spendings_kind_objects:
-        if p.first_level_kind not in first_level_kind_unique:
-            first_level_kind_unique.append(p.first_level_kind)
+    
+    if spendings_kind_objects:
+    	for p in spendings_kind_objects:
+    		if p.first_level_kind not in first_level_kind_unique:
+                first_level_kind_unique.append(p.first_level_kind)
 
     second_level_kind_unique = []
-
-    for p in spendings_kind_objects:
-        if p.second_level_kind not in first_level_kind_unique:
-            second_level_kind_unique.append(p.second_level_kind)
+    
+    if spendings_kind_objects:
+        for p in spendings_kind_objects:
+            if p.second_level_kind not in first_level_kind_unique:
+                second_level_kind_unique.append(p.second_level_kind)
 
 
         
